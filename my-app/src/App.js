@@ -22,7 +22,7 @@ function Artist({title}){
 function Turn({author,songs}){
   return (<div className="row turn" style={{backgroundColor:"White"}}>
       <div className="col-4 offset-1">
-      <img style={{width: 400, height: 600}} src={author.imageUrl} className="authorimage" alt="Author"/>
+      <img style={{width: 500, height: 700}} src={author.imageUrl} className="authorimage" alt="Author"/>
       </div>
       <div className="col-6 offset-1">
         {songs.map((title) => <Artist title={title} key={title}/>)}

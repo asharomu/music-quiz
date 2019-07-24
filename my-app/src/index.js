@@ -9,14 +9,28 @@ const authors = [
     name: 'James Hetfield',
     imageUrl: 'images/authors/jameshetfield.jpg',
     imageSource:'Wikimedia Commons',
-    songs:['Master of Puppets']
+    songs:['Master of Puppets', 'Blackened', 'Nothing Else Matters']
+    },
+
+    {
+        name: 'David Bowie',
+        imageUrl: 'images/authors/davidbowie.jpg',
+        imageSource:'Wikimedia Commons',
+        songs:['Space Oddity']
+    },
+
+    {
+        name: 'Dave Mustaine',
+        imageUrl: 'images/authors/davemustaine.jpg',
+        imageSource:'Wikimedia Commons',
+        songs:['Holy Wars', 'Promises', 'Wake Up Dead', 'Polaris', 'Killing Is My Business']
     }
 ];
 
 const state ={
     turnData:{
-    author: authors[0],
-    songs: authors[0].songs
+    author: authors[2],
+    songs: authors[2].songs
     }
 }
 

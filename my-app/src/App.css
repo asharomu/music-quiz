@@ -37,6 +37,10 @@
   cursor: pointer
 }
 
+.answer:hover {
+  background-color: #D0E3F0;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

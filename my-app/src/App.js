@@ -1,31 +1,41 @@
 import React from 'react';
 import './App.css';
 import './bootstrap.min.css';
+import PropTypes from 'prop-types';
 
 function Hero(){
   return(<div className="row">
     <div className="jumbotron col-10 offset-1">
-      <h1> Author Quiz </h1>
-      <p> Select the song written by the author shown</p>
+      <h1> Artist Quiz </h1>
+      <p> Select the songs written by the artist/band shown</p>
     </div>
   </div>);
 }
 
-function Artist({title}){
-  return(<div className="answer">
+function Song({title, onClick}){
+  return(<div className="answer" onClick={() => {onClick(title);}}>
     <h4>
       {title}
     </h4>
   </div>)
 }
 
-function Turn({author,songs}){
-  return (<div className="row turn" style={{backgroundColor:"White"}}>
+function Turn({author,songs, highlight, onAnswerSelected}){
+  function highlightToBgColor(highlight) {
+    const mapping = {
+      'none':'',
+      'correct': 'green',
+      'wrong': 'red'
+    };
+    return mapping[highlight];
+  }
+
+  return (<div className="row turn" style={{backgroundColor:highlightToBgColor(highlight)}}>
       <div className="col-4 offset-1">
-      <img style={{width: 500, height: 700}} src={author.imageUrl} className="authorimage" alt="Author"/>
+      <img style={{width: 400, height: 600}} src={author.imageUrl} className="authorimage" alt="Author"/>
       </div>
       <div className="col-6 offset-1">
-        {songs.map((title) => <Artist title={title} key={title}/>)}
+        {songs.map((title) => <Song title={title} key={title} onClick={onAnswerSelected}/>)}
       </div>
       
       </div>);
@@ -43,15 +53,27 @@ function Footer(){
   </div>);
 }
 
-function AuthorQuiz({turnData}){
+function AuthorQuiz({turnData, highlight, onAnswerSelected}){
     return (
       <div className="container-fluid">
         <Hero/>
-        <Turn {...turnData}/>
+        <Turn {...turnData} highlight={highlight} onAnswerSelected={onAnswerSelected}/>
         <Continue/>
         <Footer/>
       </div>
     );
+}
+
+Turn.propTypes = {
+  author: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    imageSource: PropTypes.string.isRequired,
+    songs: PropTypes.arrayOf(PropTypes.string).isRequired
+  }),
+
+  songs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onAnswerSelected: PropTypes.func.isRequired
 }
 
 export default AuthorQuiz;

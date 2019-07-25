@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import AuthorQuiz from './App';
 import * as serviceWorker from './serviceWorker';
-import {shuffle,sample} from 'underscore'
+import {shuffle,sample} from 'underscore';
+import {BrowserRouter, Route} from 'react-router-dom';
 
 const authors = [
     {
@@ -17,7 +18,7 @@ const authors = [
         name: 'David Bowie',
         imageUrl: 'images/authors/davidbowie.jpg',
         imageSource:'Wikimedia Commons',
-        songs:['Space Oddity', 'Heroes']
+        songs:['Space Oddity', 'Heroes', 'Changes', 'Under Pressure']
     },
 
     {
@@ -68,11 +69,28 @@ function onAnswerSelected(answer) {
     state.highlight = isCorrect ? 'correct' : 'wrong';
     //Update the DOM after we change the state
     render();
+}
 
+function App(){
+    return <AuthorQuiz {...state} onAnswerSelected={onAnswerSelected} />;
+}
+
+function AddAuthorForm({match}){
+    return <div>
+        <h1>Add Author</h1>
+        <p>{JSON.stringify(match)}</p>
+    </div>
 }
 
 function render(){
-    ReactDOM.render(<AuthorQuiz {...state} onAnswerSelected={onAnswerSelected} />, document.getElementById('root'));
+    ReactDOM.render(
+    <BrowserRouter>
+        <React.Fragment>
+            <Route exact path="/" component={App} />
+            <Route path="/add" component={AddAuthorForm}/>
+        </React.Fragment>
+    </BrowserRouter>
+    , document.getElementById('root'));
 }
 
 render();

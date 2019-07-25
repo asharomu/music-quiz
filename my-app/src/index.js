@@ -17,7 +17,7 @@ const authors = [
         name: 'David Bowie',
         imageUrl: 'images/authors/davidbowie.jpg',
         imageSource:'Wikimedia Commons',
-        songs:['Space Oddity, Heroes']
+        songs:['Space Oddity', 'Heroes']
     },
 
     {
@@ -25,6 +25,20 @@ const authors = [
         imageUrl: 'images/authors/davemustaine.jpg',
         imageSource:'Wikimedia Commons',
         songs:['Holy Wars', 'Promises', 'Wake Up Dead', 'Polaris', 'Killing Is My Business']
+    },
+
+    {
+        name: 'Paul Stanley',
+        imageUrl: 'images/authors/paulstanley.jpg',
+        imageSource:'Wikimedia Commons',
+        songs:['Forever', 'Strutter', 'Psycho Circus', 'Love Gun']
+    },
+
+    {
+        name: 'Bruce Dickinson',
+        imageUrl: 'images/authors/brucedickinson.jpg',
+        imageSource:'Wikimedia Commons',
+        songs:['Revelations', 'Hallowed Be Thy Name', 'Alexander The Great', 'Fear of the Dark']
     }
 ];
 

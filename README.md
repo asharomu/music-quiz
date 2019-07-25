@@ -1,3 +1,3 @@
 # music-quiz
 
-This game is written using ReactJS
+This game is written using ReactJS based on React Fundamentals

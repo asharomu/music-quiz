@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as Redux from 'redux';
 import *as ReactRedux from 'react-redux';
-import AuthorQuiz from './App';
+import AuthorQuiz from './ArtistQuiz';
 import * as serviceWorker from './serviceWorker';
 import {shuffle,sample} from 'underscore';
 import {BrowserRouter, Route, withRouter} from 'react-router-dom';
